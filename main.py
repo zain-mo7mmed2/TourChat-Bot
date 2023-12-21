@@ -4,7 +4,7 @@ import model
 
 print('STARTING BOT...')
 
-TOKEN = '2146711246:AAGjdz8ruMv9fVlMTeBaFnDRP6t9E-2DF0c'
+TOKEN = '---------------> BOT TOKEN <---------------'
 
 updater = telegram.ext.Updater(TOKEN, use_context=True)
 dp = updater.dispatcher
