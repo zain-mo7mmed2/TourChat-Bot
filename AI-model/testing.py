@@ -1,10 +1,11 @@
 import openai
 from colorama import Fore
+from dotenv import load_dotenv
 import os
+load_dotenv()
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-# Function to interact with the chatbot model
 def chat_with_model(user_input, conversation, chatbot):
     conversation.append({"role": "user", "content": user_input})
     messages_input = conversation.copy()
@@ -37,7 +38,8 @@ def print_colored(agent, text):
     print(colored_text)
 
 conversation = []
-chatbot_prompt = "You are a helpful assistant."
+tour_prompt = "You are a helpful assistant and a skilled trip advisor experienced in planning trips and providing details for tourists to enhance their experience. You possess knowledge about famous places, traditional food in each city, and the optimal times to visit. so provide me or us the specific times, places, and detailed recommendations for things I should do during my trip"
+chat_response = chat_with_model(tour_prompt, conversation, "")
 
 # Start the chat loop
 while True:
@@ -45,8 +47,7 @@ while True:
     if user_input.lower() in ("exit", "quit", "stop"):
         print("ChatBot1: Goodbye!")
         break
-
-    chat_response = chat_with_model(user_input, conversation, chatbot_prompt)
+    chat_response = chat_with_model(user_input, conversation, chat_response)
 
 
 
